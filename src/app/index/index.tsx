@@ -1,4 +1,3 @@
-import { ActivityIndicator } from "react-native";
 import { ThemeProvider } from "styled-components";
 import {
   useFonts,
@@ -8,6 +7,7 @@ import {
 
 import theme from "../../theme";
 
+import { Loading } from "@components/Loading";
 import Groups from "@screens/Groups";
 
 export default function Index() {
@@ -15,7 +15,7 @@ export default function Index() {
 
   return (
     <ThemeProvider theme={theme}>
-      {fontsLoaded ? <Groups /> : <ActivityIndicator />}
+      {!fontsLoaded ? <Groups /> : <Loading />}
     </ThemeProvider>
   );
 }
