@@ -15,7 +15,7 @@ export default function Index() {
 
   return (
     <ThemeProvider theme={theme}>
-      {!fontsLoaded ? <Groups /> : <Loading />}
+      {fontsLoaded ? <Groups /> : <Loading />}
     </ThemeProvider>
   );
 }
