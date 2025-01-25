@@ -1,10 +1,17 @@
+import { Container } from "./styles";
+
+import { GroupCard } from "@components/GroupCard";
 import { Header } from "@components/Header";
-import * as S from "./styles";
+import { Highlight } from "@components/Highlight";
 
 export default function Groups() {
   return (
-    <S.Container>
+    <Container>
       <Header />
-    </S.Container>
+
+      <Highlight title="Turmas" subtitle="Jogue com a sua turma" />
+
+      <GroupCard title="Lenda" />
+    </Container>
   );
 }
