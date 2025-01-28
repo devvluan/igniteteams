@@ -9,7 +9,7 @@ import {
 import theme from "../../theme";
 
 import { Loading } from "@components/Loading";
-import NewGroup from "@screens/NewGroup";
+import { Players } from "@screens/Players";
 
 export default function Index() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
@@ -21,7 +21,7 @@ export default function Index() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <NewGroup /> : <Loading />}
+      {fontsLoaded ? <Players /> : <Loading />}
     </ThemeProvider>
   );
 }
