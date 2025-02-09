@@ -1,3 +1,4 @@
+import { SafeAreaView } from "react-native-safe-area-context";
 import styled, { DefaultTheme, css } from "styled-components/native";
 
 export const Container = styled.View`
@@ -6,7 +7,7 @@ export const Container = styled.View`
   padding: 24px;
 `;
 
-export const Form = styled.View`
+export const Form = styled(SafeAreaView)`
   width: 100%;
   background-color: ${({ theme }: { theme: DefaultTheme }) => theme.COLORS.GRAY_700};
 
