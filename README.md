@@ -45,5 +45,3 @@ Isso moverá o código inicial para a pasta **app-example** e criará uma nova p
 - [Tutorial Expo](https://docs.expo.dev/tutorial/introduction/): Crie um projeto passo a passo para Android, iOS e web.  
 
 ---
-
-Esse texto ficou mais direto e fluido. Precisa de mais alguma melhoria? 🚀
