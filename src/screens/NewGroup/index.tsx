@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigation } from "expo-router";
 
+import { groupCreate } from "@storage/group/groupCreate";
+
 import { Container, Content, Icon } from "./styles";
 
 import { Input } from "@components/Input";
@@ -12,7 +14,8 @@ export default function NewGroup() {
   const [group, setGroup] = useState("");
 
   const navigation = useNavigation();
-  function handleNew() {
+  async function handleNew() {
+    await groupCreate(group);
     navigation.navigate("players", { group });
   }
   return (

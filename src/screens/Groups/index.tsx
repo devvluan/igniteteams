@@ -1,6 +1,9 @@
-import { useState } from "react";
-import { FlatList } from "react-native";
+import { useState, useCallback } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect } from "expo-router";
+import { Alert, FlatList } from "react-native";
+
+import { groupsGetAll } from "@storage/group/groupsGetAll";
 
 import { Header } from "@components/Header";
 import { Button } from "@components/Button";
@@ -18,6 +21,22 @@ export default function Groups() {
   function handleNewGroup() {
     navigation.navigate("new");
   }
+
+  async function fetchGroups() {
+    try {
+      await groupsGetAll().then(setGroups);
+    } catch (error) {
+      Alert.alert("Turmas", "Não foi possível carregar as turmas.");
+      console.log(error);
+    }
+  }
+
+  useFocusEffect(
+    useCallback(() => {
+      console.log("carregou");
+      fetchGroups();
+    }, [])
+  );
 
   return (
     <Container>
