@@ -1,5 +1,3 @@
-Aqui está a versão traduzida, simplificada e aprimorada:  
-
 ---
 
 # Bem-vindo ao seu app Expo 👋  
