@@ -1,6 +1,8 @@
+import { Alert } from "react-native";
 import { useState } from "react";
 import { useNavigation } from "expo-router";
 
+import { AppError } from "@utils/AppError";
 import { groupCreate } from "@storage/group/groupCreate";
 
 import { Container, Content, Icon } from "./styles";
@@ -15,8 +17,21 @@ export default function NewGroup() {
 
   const navigation = useNavigation();
   async function handleNew() {
-    await groupCreate(group);
-    navigation.navigate("players", { group });
+    try {
+      if (group.trim().length === 0) {
+        return Alert.alert("Novo Grupo", "Informe o nome da turma.");
+      }
+
+      await groupCreate(group);
+      navigation.navigate("players", { group });
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert("Novo Grupo", error.message);
+      } else {
+        Alert.alert("Novo Grupo", "Não foi possível criar um novo grupo.");
+        console.error(error);
+      }
+    }
   }
   return (
     <Container>
